@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unified Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <link rel="stylesheet" href="registration.css"/>
+  </head>
+  <body>
+    <div style="background-color: black; color: white; text-align: end; padding: 5px;">
+      <a href="Login.html"><button style="padding: 10px;">Login</button></a>
+     <a href="addDishes.html"> <button style="padding: 10px;">Add Dishes</button></a>
+    </div>
+    <div class="whole-container">
+      <div class="form-container">
+        <div class="form-header"> Registration</div>
+        <div class="form-row">
+          <label>Category:</label>
+          <select id="category" required onchange="updateFormFields()">
+            <option value="" disabled selected>Select category</option>
+            <option value="manager">Manager</option>
+            <option value="delivery_boy">Delivery Boy</option>
+            <option value="waiter">Waiter</option>
+            <option value="credit_user">Credit User</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Full Name:</label>
+          <input type="text" id="full_name" placeholder="Enter full name" required />
+        </div>
+        <div class="form-row">
+          <label>Contact Number:</label>
+          <input type="tel" id="contact_number" placeholder="Enter contact number" required />
+        </div>
+        <div class="form-row">
+          <label>Email ID:</label>
+          <input type="email" id="email" placeholder="Enter email address" />
+        </div>
+        <div class="form-row">
+          <label>Address:</label>
+          <input type="text" id="address" placeholder="Enter residential address" required />
+        </div>
+        <div class="form-row">
+          <label>PassWord:</label>
+          <input type="text" id="PassWord" placeholder="Enter PassWord" required />
+        </div>
+        <div class="form-row manager-field delivery-boy-field waiter-field hidden">
+          <label>Date of Joining:</label>
+          <input type="date" id="date_of_joining" required />
+        </div>
+        <div class="form-row manager-field hidden">
+          <label>Department:</label>
+          <select id="department" required>
+            <option value="" disabled selected>Select department</option>
+            <option value="operations">Operations</option>
+            <option value="logistics">Logistics</option>
+            <option value="sales">Sales</option>
+            <option value="finance">Finance</option>
+          </select>
+        </div>
+        <div class="form-row manager-field delivery-boy-field waiter-field hidden">
+          <label>Branch:</label>
+          <select id="branch" required>
+            <option value="" disabled selected>Select branch</option>
+            <option value="branch1">Branch 1</option>
+            <option value="branch2">Branch 2</option>
+            <option value="branch3">Branch 3</option>
+          </select>
+        </div>
+        <div class="form-row manager-field hidden">
+          <label>Access Level:</label>
+          <div class="radio-buttons">
+            <input type="radio" id="admin" name="access_level" value="admin" required />
+            <label for="admin">Admin</label>
+            <input type="radio" id="supervisor" name="access_level" value="supervisor" />
+            <label for="supervisor">Supervisor</label>
+            <input type="radio" id="manager" name="access_level" value="manager" />
+            <label for="manager">Manager</label>
+          </div>
+        </div>
+        <div class="form-row delivery-boy-field hidden">
+          <label>Vehicle Type:</label>
+          <div class="radio-buttons">
+            <input type="radio" id="bike" name="vehicle_type" value="bike" required />
+            <label for="bike">Bike</label>
+            <input type="radio" id="scooter" name="vehicle_type" value="scooter" />
+            <label for="scooter">Scooter</label>
+            <input type="radio" id="car" name="vehicle_type" value="car" />
+            <label for="car">Car</label>
+          </div>
+        </div>
+        <div class="form-row delivery-boy-field hidden">
+          <label>License Number:</label>
+          <input type="text" id="license_number" placeholder="Enter license number" required />
+        </div>
+        <div class="form-row delivery-boy-field hidden">
+          <label>Vehicle Number:</label>
+          <input type="text" id="vehicle_number" placeholder="Enter vehicle number" required />
+        </div>
+        <div class="form-row waiter-field hidden">
+          <label>Shift Preference:</label>
+          <div class="radio-buttons">
+            <input type="radio" id="morning" name="shift_preference" value="morning" required />
+            <label for="morning">Morning</label>
+            <input type="radio" id="evening" name="shift_preference" value="evening" />
+            <label for="evening">Evening</label>
+            <input type="radio" id="flexible" name="shift_preference" value="flexible" />
+            <label for="flexible">Flexible</label>
+          </div>
+        </div>
+        <div class="form-row waiter-field hidden">
+          <label>Experience Level:</label>
+          <div class="radio-buttons">
+            <input type="radio" id="entry" name="experience_level" value="entry" required />
+            <label for="entry">Entry Level</label>
+            <input type="radio" id="intermediate" name="experience_level" value="intermediate" />
+            <label for="intermediate">Intermediate</label>
+            <input type="radio" id="senior" name="experience_level" value="senior" />
+            <label for="senior">Senior</label>
+          </div>
+        </div>
+        <div class="form-row credit-user-field hidden">
+          <label>Credit Limit:</label>
+          <input type="number" id="credit_limit" step="0.01" placeholder="Enter credit limit" required />
+        </div>
+        <div class="form-row credit-user-field hidden">
+          <label>Payment Terms:</label>
+          <select id="payment_terms" required>
+            <option value="" disabled selected>Select payment terms</option>
+            <option value="net_30">Net 30</option>
+            <option value="net_60">Net 60</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+        </div>
+        <div class="button-container">
+          <button class="submit-btn"><i class="fa-solid fa-floppy-disk"></i> Register</button>
+          <button class="reset-btn" type="reset" onclick="resetForm()"><i class="fa-solid fa-arrow-rotate-right"></i> Reset</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function updateFormFields() {
+        const category = document.getElementById('category').value;
+        const fields = {
+          manager: ['date_of_joining', 'department', 'branch', 'access_level'],
+          delivery_boy: ['date_of_joining', 'branch', 'vehicle_type', 'license_number','vehicle_number'],
+          waiter: ['date_of_joining', 'branch', 'shift_preference', 'experience_level'],
+          credit_user: ['credit_limit', 'payment_terms']
+        };
+
+        // Hide all category-specific fields
+        document.querySelectorAll('.manager-field, .delivery-boy-field, .waiter-field, .credit-user-field').forEach(field => {
+          field.classList.add('hidden');
+          // Remove required attribute from hidden fields to prevent validation issues
+          const inputs = field.querySelectorAll('input, select');
+          inputs.forEach(input => input.removeAttribute('required'));
+        });
+
+        // Show fields for selected category
+        if (fields[category]) {
+          fields[category].forEach(field => {
+            const fieldRows = document.querySelectorAll(`.${category.replace('_', '-')}-field`);
+            fieldRows.forEach(row => {
+              if (row.querySelector(`#${field}`)) {
+                row.classList.remove('hidden');
+                // Add required attribute back to visible fields
+                const inputs = row.querySelectorAll('input, select');
+                inputs.forEach(input => input.setAttribute('required', 'true'));
+              }
+            });
+          });
+        }
+      }
+
+      function resetForm() {
+        document.getElementById('category').value = '';
+        updateFormFields();
+        document.querySelectorAll('input[type="radio"]').forEach(radio => (radio.checked = false));
+      }
+
+      // Initialize form to hide category-specific fields on load
+      updateFormFields();
+    </script>
+  </body>
+</html>
