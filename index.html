@@ -86,6 +86,8 @@
           <label>Date of Joining:</label>
           <input type="date" id="date_of_joining" required />
         </div>
+
+        <!-- ----------------------- -->
         <div class="form-row manager-field hidden">
           <label>Department:</label>
           <select id="department" required>
@@ -184,7 +186,7 @@
             required
           />
         </div>
-        <div class="form-row waiter-field hidden">
+        <!-- <div class="form-row waiter-field hidden">
           <label>Shift Preference:</label>
           <div class="radio-buttons">
             <input
@@ -210,29 +212,29 @@
             />
             <label for="flexible">Flexible</label>
           </div>
-        </div>
+        </div> -->
         <div class="form-row waiter-field hidden">
           <label>Experience Level:</label>
           <div class="radio-buttons">
             <input
               type="radio"
-              id="entry"
-              name="experience_level"
+              
+              id="experience_level"
               value="entry"
               required
             />
             <label for="entry">Entry Level</label>
             <input
               type="radio"
-              id="intermediate"
-              name="experience_level"
+              
+              id="experience_level"
               value="intermediate"
             />
             <label for="intermediate">Intermediate</label>
             <input
               type="radio"
-              id="senior"
-              name="experience_level"
+            
+              id="experience_level"
               value="senior"
             />
             <label for="senior">Senior</label>
@@ -284,6 +286,7 @@
             "branch",
             "shift_preference",
             "experience_level",
+            
           ],
           credit_user: ["credit_limit", "payment_terms"],
           kitchen:["date_of_joining","kitchen_department"]
@@ -292,7 +295,7 @@
         // Hide all category-specific fields
         document
           .querySelectorAll(
-            ".manager-field, .delivery-boy-field, .waiter-field, .credit-user-field"
+            ".manager-field, .delivery-boy-field, .waiter-field, .credit-user-field,.kitchen-field"
           )
           .forEach((field) => {
             field.classList.add("hidden");
